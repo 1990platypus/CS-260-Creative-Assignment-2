@@ -3,7 +3,7 @@
   <title>Movie Critique</title>
 
 
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+ 	<link rel = "stylesheet" type = "text/css" href = "main.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
@@ -23,7 +23,7 @@
     <div class="page-header">
       <h1>Movie Critique</h1>
     </div>
-
+	<p>Instructions: Type in the title of the movie you would like to critque. Then hit submit and give a star rating out of 10. Then click "My Critique" to enter a review</p>
     <form ng-submit="addPost()"
       style="margin-top:30px;">
       <h3>Critique a new Movie</h3>
@@ -35,13 +35,13 @@
         ng-model="formContent"
         ng-model-options="{ getterSetter: true }"></input>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" id = "subButton" class="btn btn-primary">Submit</button>
     </form>
     <pre>You have typed the following = <span ng-bind="formContent"></span></pre>
 
     <div ng-repeat="post in posts | orderBy:'-upvotes'">
-      <span class="glyphicon glyphicon-thumbs-up"
-        ng-click="incrementUpvotes(post)"></span>
+      <span
+        ng-click="incrementUpvotes(post)">&#x2606;</span>
       {{post.upvotes}}
       <span style="font-size:20px; margin-left:10px;">
           {{post.title}}
@@ -62,7 +62,7 @@
 
     <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
       <span class="glyphicon glyphicon-thumbs-up"
-        ng-click="incrementUpvotes(comment)"></span>
+        ng-click="incrementUpvotes(comment)">&#9757;</span>
       {{comment.upvotes}} 
       <span style="font-size:20px; margin-left:10px;">
         {{comment.body}}
@@ -75,7 +75,9 @@
       <div class="form-group">
         <input type="text"
         class="form-control"
-        placeholder="Critique"
+	size = "75"
+        height = "5"
+	placeholder="Critique"
         ng-model="body"></input>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>

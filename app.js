@@ -39,6 +39,9 @@ angular.module('News', ['ui.router'])
 
       $scope.incrementUpvotes = function(post) {
         post.upvotes += 1;
+	if(post.upvotes > 10){
+		post.upvotes = 10;
+	}
       };
     }
 ])
